@@ -48,6 +48,8 @@
     <button onclick="generateTruthOrDare()">🎭 Truth or Dare Fun</button>
     <button onclick="generateCaptionBattle()">📸 Caption Battle</button>
     <button onclick="generateMoodVibes()">🎶 Mood-Based Vibes</button>
+    <button onclick="spinWheelDecisionMaker()">🎡 Spin Wheel Decision Maker</button>
+
 
 
     <div id="output"></div>
@@ -153,6 +155,21 @@
     document.getElementById("output").innerHTML =
         `<strong>${randomMood.mood}</strong><br>${randomMood.vibe}<br>
         <a href="${randomMood.link}" target="_blank">▶️ Play Vibes on YouTube</a>`;
+}
+function spinWheelDecisionMaker() {
+    const decisions = [
+        "🍕 Order Pizza",
+        "🥗 Eat Salad",
+        "🎮 Play a Game",
+        "🏃 Go for a Walk",
+        "🎥 Watch a Movie",
+        "🎤 Sing a Song",
+        "☕ Make Coffee",
+        "🛌 Take a Nap"
+    ];
+
+    const randomDecision = decisions[Math.floor(Math.random() * decisions.length)];
+    document.getElementById("output").innerText = "🎡 Spin Result: " + randomDecision;
 }
 
     </script>
