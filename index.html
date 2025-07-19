@@ -12,6 +12,7 @@
             justify-content: center;
             height: 100vh;
             background: #f7f7f7;
+            padding: 10px;
         }
         h1 {
             font-size: 2em;
@@ -34,6 +35,7 @@
             font-size: 18px;
             text-align: center;
             width: 80%;
+            white-space: pre-wrap;
         }
     </style>
 </head>
@@ -44,6 +46,7 @@
 
     <button onclick="generateRoast()">🎤 Generate Roast</button>
     <button onclick="generateTruthOrDare()">🎭 Truth or Dare Fun</button>
+    <button onclick="generateCaptionBattle()">📸 Caption Battle</button>
 
     <div id="output"></div>
 
@@ -85,6 +88,34 @@
                 : "😈 Dare: " + dares[Math.floor(Math.random() * dares.length)];
 
             document.getElementById("output").innerText = randomItem;
+        }
+
+        function generateCaptionBattle() {
+            const scenarios = [
+                "A cat stuck in a cereal box.",
+                "When your friend trips over nothing.",
+                "The moment you realize it's Monday tomorrow.",
+                "A dog wearing sunglasses on a skateboard.",
+                "When you see your crush and try to act normal.",
+                "Trying to take a selfie with your pet.",
+                "The face you make when the WiFi goes out."
+            ];
+
+            const captions = [
+                "Mood: 404 Not Found.",
+                "This is fine. Everything is fine.",
+                "Current status: buffering...",
+                "Send help, but make it aesthetic.",
+                "Living my best awkward life.",
+                "Plot twist: it was me all along.",
+                "When your brain forgets how to human."
+            ];
+
+            const randomScenario = scenarios[Math.floor(Math.random() * scenarios.length)];
+            const randomCaption = captions[Math.floor(Math.random() * captions.length)];
+
+            document.getElementById("output").innerText =
+                "📸 Scenario: " + randomScenario + "\n💡 Suggested Caption: " + randomCaption;
         }
     </script>
 
