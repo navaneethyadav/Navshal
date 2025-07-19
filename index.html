@@ -10,7 +10,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
+            min-height: 100vh;
             background: #f7f7f7;
             padding: 10px;
         }
@@ -37,6 +37,20 @@
             width: 80%;
             white-space: pre-wrap;
         }
+        footer {
+            position: fixed;
+            bottom: 10px;
+            text-align: center;
+            width: 100%;
+            font-size: 14px;
+            color: #555;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { opacity: 0.6; }
+            50% { opacity: 1; }
+            100% { opacity: 0.6; }
+        }
     </style>
 </head>
 <body>
@@ -49,8 +63,6 @@
     <button onclick="generateCaptionBattle()">📸 Caption Battle</button>
     <button onclick="generateMoodVibes()">🎶 Mood-Based Vibes</button>
     <button onclick="spinWheelDecisionMaker()">🎡 Spin Wheel Decision Maker</button>
-
-
 
     <div id="output"></div>
 
@@ -96,13 +108,11 @@
 
         function generateCaptionBattle() {
             const scenarios = [
-                "A cat stuck in a cereal box.",
-                "When your friend trips over nothing.",
-                "The moment you realize it's Monday tomorrow.",
-                "A dog wearing sunglasses on a skateboard.",
-                "When you see your crush and try to act normal.",
-                "Trying to take a selfie with your pet.",
-                "The face you make when the WiFi goes out."
+                "Your best friend's reaction when you steal their fries.",
+                "Monday mornings be like...",
+                "When your crush walks by and you act cool.",
+                "When your pet does something weird.",
+                "Trying to study but the phone keeps calling you."
             ];
 
             const captions = [
@@ -121,60 +131,63 @@
             document.getElementById("output").innerText =
                 "📸 Scenario: " + randomScenario + "\n💡 Suggested Caption: " + randomCaption;
         }
+
         function generateMoodVibes() {
-    const moods = [
-        {
-            mood: "📚 Study Vibes",
-            vibe: "Time to lock in with chill lofi beats.",
-            link: "https://www.youtube.com/watch?v=5qap5aO4i9A"
-        },
-        {
-            mood: "💃 Party Mode",
-            vibe: "Get up and dance, it’s party time!",
-            link: "https://www.youtube.com/watch?v=1hHMwLxN6EM"
-        },
-        {
-            mood: "🛌 Chill & Relax",
-            vibe: "Relax and unwind with calming tunes.",
-            link: "https://www.youtube.com/watch?v=DWcJFNfaw9c"
-        },
-        {
-            mood: "🌞 Morning Motivation",
-            vibe: "Start your day with positive energy.",
-            link: "https://www.youtube.com/watch?v=bgXsgqp6jDU"
-        },
-        {
-            mood: "🌧️ Rainy Mood",
-            vibe: "Perfect background rain sounds for your mood.",
-            link: "https://www.youtube.com/watch?v=l1EssrLxt7E"
+            const moods = [
+                {
+                    mood: "📚 Study Vibes",
+                    vibe: "Time to lock in with chill lofi beats.",
+                    link: "https://www.youtube.com/watch?v=5qap5aO4i9A"
+                },
+                {
+                    mood: "💃 Party Mode",
+                    vibe: "Get up and dance, it’s party time!",
+                    link: "https://www.youtube.com/watch?v=1hHMwLxN6EM"
+                },
+                {
+                    mood: "🛌 Chill & Relax",
+                    vibe: "Relax and unwind with calming tunes.",
+                    link: "https://www.youtube.com/watch?v=DWcJFNfaw9c"
+                },
+                {
+                    mood: "🌞 Morning Motivation",
+                    vibe: "Start your day with positive energy.",
+                    link: "https://www.youtube.com/watch?v=bgXsgqp6jDU"
+                },
+                {
+                    mood: "🌧️ Rainy Mood",
+                    vibe: "Perfect background rain sounds for your mood.",
+                    link: "https://www.youtube.com/watch?v=l1EssrLxt7E"
+                }
+            ];
+
+            const randomMood = moods[Math.floor(Math.random() * moods.length)];
+
+            document.getElementById("output").innerHTML =
+                `<strong>${randomMood.mood}</strong><br>${randomMood.vibe}<br>
+                <a href="${randomMood.link}" target="_blank">▶️ Play Vibes on YouTube</a>`;
         }
-    ];
 
-    const randomMood = moods[Math.floor(Math.random() * moods.length)];
+        function spinWheelDecisionMaker() {
+            const decisions = [
+                "🍕 Order Pizza",
+                "🥗 Eat Salad",
+                "🎮 Play a Game",
+                "🏃 Go for a Walk",
+                "🎥 Watch a Movie",
+                "🎤 Sing a Song",
+                "☕ Make Coffee",
+                "🛌 Take a Nap"
+            ];
 
-    document.getElementById("output").innerHTML =
-        `<strong>${randomMood.mood}</strong><br>${randomMood.vibe}<br>
-        <a href="${randomMood.link}" target="_blank">▶️ Play Vibes on YouTube</a>`;
-}
-function spinWheelDecisionMaker() {
-    const decisions = [
-        "🍕 Order Pizza",
-        "🥗 Eat Salad",
-        "🎮 Play a Game",
-        "🏃 Go for a Walk",
-        "🎥 Watch a Movie",
-        "🎤 Sing a Song",
-        "☕ Make Coffee",
-        "🛌 Take a Nap"
-    ];
-
-    const randomDecision = decisions[Math.floor(Math.random() * decisions.length)];
-    document.getElementById("output").innerText = "🎡 Spin Result: " + randomDecision;
-}
-
+            const randomDecision = decisions[Math.floor(Math.random() * decisions.length)];
+            document.getElementById("output").innerText = "🎡 Spin Result: " + randomDecision;
+        }
     </script>
 
-    <p>🚀 Made with ❤️ by Navaneeth | Navshal 2025</p>
+    <footer>
+        🚀 Made with ❤️ by Navaneeth | Navshal © 2025
+    </footer>
 
 </body>
 </html>
