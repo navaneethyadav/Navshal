@@ -1,57 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Navshal 🤙 - Your Fun Friend Hub</title>
+    <meta charset="UTF-8">
+    <title>Navshal 🤙</title>
     <style>
         body {
             font-family: sans-serif;
-            background-color: #f0f4f8;
-            text-align: center;
-            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: #f7f7f7;
         }
         h1 {
             font-size: 2em;
-            margin-bottom: 10px;
         }
-        p {
-            font-size: 1.2em;
-            margin-bottom: 20px;
-        }
-        .button {
-            display: block;
-            width: 250px;
-            margin: 10px auto;
-            padding: 15px;
-            background-color: #007bff;
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
+        button {
+            padding: 10px 20px;
             font-size: 16px;
+            margin: 10px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
         }
-        .button:hover {
-            background-color: #0056b3;
+        button:hover {
+            background-color: #45a049;
         }
-        footer {
-            margin-top: 40px;
-            font-size: 0.9em;
-            color: #555;
+        #output {
+            margin-top: 20px;
+            font-size: 18px;
+            text-align: center;
+            width: 80%;
         }
     </style>
 </head>
 <body>
+
     <h1>Navshal 🤙</h1>
-    <p>Welcome to Navshal – Your Fun Friend Hub!</p>
+    <h2>Welcome to Navshal – Your Fun Friend Hub!</h2>
 
-    <a href="#" class="button">🎤 Generate Roast</a>
-    <a href="#" class="button">😊 Generate Compliment</a>
-    <a href="#" class="button">📸 Caption Battle</a>
-    <a href="#" class="button">🎶 Mood-Based Vibes</a>
-    <a href="#" class="button">🎡 Spin Wheel Decision Maker</a>
-    <a href="#" class="button">🎭 Truth or Dare Fun</a>
-    <a href="#" class="button">📝 Post Anything</a>
+    <button onclick="generateRoast()">🎤 Generate Roast</button>
+    <button onclick="generateTruthOrDare()">🎭 Truth or Dare Fun</button>
 
-    <footer>🚀 Made with ❤️ by Navaneeth | Navshal 2025</footer>
+    <div id="output"></div>
+
+    <script>
+        function generateRoast() {
+            const roasts = [
+                "You’re the reason the gene pool needs a lifeguard.",
+                "If laziness was an Olympic sport, you'd get gold.",
+                "You have the perfect face for radio.",
+                "You’re as bright as a black hole, and twice as dense.",
+                "Your secrets are always safe with me. I never listen anyway.",
+                "You bring everyone so much joy when you leave the room.",
+                "If I wanted to kill myself, I’d climb your ego and jump to your IQ."
+            ];
+            const randomRoast = roasts[Math.floor(Math.random() * roasts.length)];
+            document.getElementById("output").innerText = randomRoast;
+        }
+
+        function generateTruthOrDare() {
+            const truths = [
+                "What is your most embarrassing moment?",
+                "Who was your first crush?",
+                "Have you ever lied to your best friend?",
+                "What is the biggest secret you have kept from your parents?",
+                "What is the weirdest dream you've ever had?"
+            ];
+
+            const dares = [
+                "Sing a song loudly for 30 seconds.",
+                "Do 10 push-ups right now.",
+                "Post a funny selfie in the group.",
+                "Do your best dance move for 15 seconds.",
+                "Speak in a cartoon voice for the next 2 minutes."
+            ];
+
+            const isTruth = Math.random() < 0.5;
+            const randomItem = isTruth
+                ? "🧐 Truth: " + truths[Math.floor(Math.random() * truths.length)]
+                : "😈 Dare: " + dares[Math.floor(Math.random() * dares.length)];
+
+            document.getElementById("output").innerText = randomItem;
+        }
+    </script>
+
+    <p>🚀 Made with ❤️ by Navaneeth | Navshal 2025</p>
+
 </body>
 </html>
